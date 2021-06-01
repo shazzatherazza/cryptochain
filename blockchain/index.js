@@ -37,7 +37,7 @@ class Blockchain {
             return false;
           }
           const trueBalance = Wallet.calculateBalance({
-            chain: chain.slice(0, i + 1),
+            chain: this.chain,
             address: transaction.input.address,
           });
           if (transaction.input.amount !== trueBalance) {
