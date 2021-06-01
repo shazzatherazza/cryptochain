@@ -28581,8 +28581,6 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 var App =
 /*#__PURE__*/
 function (_Component) {
@@ -28593,19 +28591,17 @@ function (_Component) {
   function App() {
     var _this;
 
+    var _temp;
+
     _classCallCheck(this, App);
 
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    _this = _super.call.apply(_super, [this].concat(args));
-
-    _defineProperty(_assertThisInitialized(_this), "state", {
+    return _possibleConstructorReturn(_this, (_temp = _this = _super.call.apply(_super, [this].concat(args)), _this.state = {
       walletInfo: {}
-    });
-
-    return _this;
+    }, _temp));
   }
 
   _createClass(App, [{
@@ -46815,8 +46811,6 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 var Block =
 /*#__PURE__*/
 function (_Component) {
@@ -46827,25 +46821,21 @@ function (_Component) {
   function Block() {
     var _this;
 
+    var _temp;
+
     _classCallCheck(this, Block);
 
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    _this = _super.call.apply(_super, [this].concat(args));
-
-    _defineProperty(_assertThisInitialized(_this), "state", {
+    return _possibleConstructorReturn(_this, (_temp = _this = _super.call.apply(_super, [this].concat(args)), _this.state = {
       displayTransaction: false
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "toggleTransaction", function () {
+    }, _this.toggleTransaction = function () {
       _this.setState({
         displayTransaction: !_this.state.displayTransaction
       });
-    });
-
-    return _this;
+    }, _temp));
   }
 
   _createClass(Block, [{
@@ -46949,8 +46939,6 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 var Blocks =
 /*#__PURE__*/
 function (_Component) {
@@ -46961,21 +46949,19 @@ function (_Component) {
   function Blocks() {
     var _this;
 
+    var _temp;
+
     _classCallCheck(this, Blocks);
 
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    _this = _super.call.apply(_super, [this].concat(args));
-
-    _defineProperty(_assertThisInitialized(_this), "state", {
+    return _possibleConstructorReturn(_this, (_temp = _this = _super.call.apply(_super, [this].concat(args)), _this.state = {
       blocks: [],
       paginatedId: 1,
       blocksLength: 0
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "fetchPaginatedBlocks", function (paginatedId) {
+    }, _this.fetchPaginatedBlocks = function (paginatedId) {
       return function () {
         fetch("".concat(document.location.origin, "/api/blocks/").concat(paginatedId)).then(function (response) {
           return response.json();
@@ -46985,9 +46971,7 @@ function (_Component) {
           });
         });
       };
-    });
-
-    return _this;
+    }, _temp));
   }
 
   _createClass(Blocks, [{
@@ -47079,8 +47063,6 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 var ConductTransaction =
 /*#__PURE__*/
 function (_Component) {
@@ -47091,33 +47073,27 @@ function (_Component) {
   function ConductTransaction() {
     var _this;
 
+    var _temp;
+
     _classCallCheck(this, ConductTransaction);
 
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    _this = _super.call.apply(_super, [this].concat(args));
-
-    _defineProperty(_assertThisInitialized(_this), "state", {
+    return _possibleConstructorReturn(_this, (_temp = _this = _super.call.apply(_super, [this].concat(args)), _this.state = {
       recipient: "",
       amount: 0,
       knownAddresses: []
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "updateRecipient", function (event) {
+    }, _this.updateRecipient = function (event) {
       _this.setState({
         recipient: event.target.value
       });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "updateAmount", function (event) {
+    }, _this.updateAmount = function (event) {
       _this.setState({
         amount: Number(event.target.value)
       });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "conductTransaction", function () {
+    }, _this.conductTransaction = function () {
       var _this$state = _this.state,
           recipient = _this$state.recipient,
           amount = _this$state.amount;
@@ -47137,9 +47113,7 @@ function (_Component) {
 
         _history.default.push("/transaction-pool");
       });
-    });
-
-    return _this;
+    }, _temp));
   }
 
   _createClass(ConductTransaction, [{
@@ -47234,8 +47208,6 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 var POLL_INTERVAL_MS = 10000;
 
 var TransactionPool =
@@ -47248,19 +47220,17 @@ function (_Component) {
   function TransactionPool() {
     var _this;
 
+    var _temp;
+
     _classCallCheck(this, TransactionPool);
 
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    _this = _super.call.apply(_super, [this].concat(args));
-
-    _defineProperty(_assertThisInitialized(_this), "state", {
+    return _possibleConstructorReturn(_this, (_temp = _this = _super.call.apply(_super, [this].concat(args)), _this.state = {
       transactionPoolMap: {}
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "fetchTransactionPoolMap", function () {
+    }, _this.fetchTransactionPoolMap = function () {
       fetch("".concat(document.location.origin, "/api/transaction-pool-map")).then(function (response) {
         return response.json();
       }).then(function (json) {
@@ -47268,9 +47238,7 @@ function (_Component) {
           transactionPoolMap: json
         });
       });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "fetchMineTransactions", function () {
+    }, _this.fetchMineTransactions = function () {
       fetch("".concat(document.location.origin, "/api/mine-transactions")).then(function (response) {
         if (response.status === 200) {
           alert("success");
@@ -47280,9 +47248,7 @@ function (_Component) {
           alert("The mine-transactions block request did not complete.");
         }
       });
-    });
-
-    return _this;
+    }, _temp));
   }
 
   _createClass(TransactionPool, [{
@@ -47464,7 +47430,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49989" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54855" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

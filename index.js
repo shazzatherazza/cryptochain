@@ -38,7 +38,7 @@ app.get("/api/blocks/length", (req, res) => {
 app.get("/api/blocks/:id", (req, res) => {
   const { id } = req.params;
   const { length } = blockchain.chain;
-  const blocksReversed = blockchain.chain.reverse();
+  const blocksReversed = blockchain.chain.slice().reverse();
   let startIndex = (id - 1) * 5;
   let endIndex = id * 5;
   startIndex = startIndex < length ? startIndex : length;
@@ -109,7 +109,7 @@ const syncWithRootState = () => {
     (error, response, body) => {
       if (!error && response.statusCode === 200) {
         const rootChain = JSON.parse(body);
-        console.log("replace chain on a sync with", rootChain);
+        //console.log("replace chain on a sync with", rootChain);
         blockchain.replaceChain(rootChain);
       }
     }
@@ -119,10 +119,7 @@ const syncWithRootState = () => {
     (error, response, body) => {
       if (!error && response.statusCode === 200) {
         const rootTransactionPoolMap = JSON.parse(body);
-        console.log(
-          "replace transaction pool map on a sync with",
-          rootTransactionPoolMap
-        );
+        //console.log("replace transaction pool map on a sync with", rootTransactionPoolMap);
         transactionPool.setMap(rootTransactionPoolMap);
       }
     }
@@ -160,7 +157,7 @@ if (isDevelopment) {
     });
   for (let i = 0; i < 10; i++) {
     if (i % 3 === 0) {
-      walletAction;
+      walletAction();
       walletFooAction();
     } else if (i % 3 === 1) {
       walletAction();
@@ -172,6 +169,7 @@ if (isDevelopment) {
     transactionMiner.mineTransactions();
   }
 }
+
 let PEER_PORT;
 if (process.env.GENERATE_PEER_PORT === "true") {
   PEER_PORT = DEFAULT_PORT + Math.ceil(Math.random() * 1000);

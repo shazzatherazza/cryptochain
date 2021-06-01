@@ -6,6 +6,7 @@ class Wallet {
     this.balance = STARTING_BALANCE;
     this.keyPair = ec.genKeyPair();
     this.publicKey = this.keyPair.getPublic().encode("hex");
+    this.tempchain = null;
   }
   sign(data) {
     return this.keyPair.sign(cryptoHash(data));
@@ -14,7 +15,7 @@ class Wallet {
     if (chain) {
       this.balance = Wallet.calculateBalance({
         chain,
-        address: this.publicKey
+        address: this.publicKey,
       });
     }
     if (amount > this.balance) {
@@ -31,6 +32,7 @@ class Wallet {
         if (transaction.input.address === address) {
           hasConductedTransaction = true;
         }
+
         const addressOutput = transaction.outputMap[address];
         if (addressOutput) {
           outputsTotal = outputsTotal + addressOutput;

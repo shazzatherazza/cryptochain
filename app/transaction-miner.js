@@ -19,6 +19,8 @@ class TransactionMiner {
     this.pubsub.broadcastChain();
     // clear the pool
     this.transactionPool.clear();
+
+    console.log(JSON.stringify(this.blockchain.chain));
   }
 }
 module.exports = TransactionMiner;
