@@ -109,7 +109,7 @@ const syncWithRootState = () => {
     (error, response, body) => {
       if (!error && response.statusCode === 200) {
         const rootChain = JSON.parse(body);
-        //console.log("replace chain on a sync with", rootChain);
+        console.log("replace chain on a sync with", rootChain);
         blockchain.replaceChain(rootChain);
       }
     }
@@ -119,7 +119,10 @@ const syncWithRootState = () => {
     (error, response, body) => {
       if (!error && response.statusCode === 200) {
         const rootTransactionPoolMap = JSON.parse(body);
-        //console.log("replace transaction pool map on a sync with", rootTransactionPoolMap);
+        console.log(
+          "replace transaction pool map on a sync with",
+          rootTransactionPoolMap
+        );
         transactionPool.setMap(rootTransactionPoolMap);
       }
     }
