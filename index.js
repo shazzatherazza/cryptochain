@@ -128,7 +128,7 @@ const syncWithRootState = () => {
     }
   );
 };
-if (isDevelopment) {
+if (isDevelopment && false) {
   const walletFoo = new Wallet();
   const walletBar = new Wallet();
 
@@ -175,7 +175,9 @@ if (isDevelopment) {
 
 let PEER_PORT;
 if (process.env.GENERATE_PEER_PORT === "true") {
-  PEER_PORT = DEFAULT_PORT + Math.ceil(Math.random() * 1000);
+  PEER_PORT =
+    DEFAULT_PORT + //Math.ceil(Math.random() * 1000);
+    10;
 }
 const PORT = process.env.PORT || PEER_PORT || DEFAULT_PORT;
 app.listen(PORT, () => {
